@@ -47,19 +47,26 @@ const connectDB = () => {
     });
 };
 
-// Function to start the server
-const startServer = async () => {
+// Connect to MongoDB
+connectDB();
+
+// Function to start the server locally
+const startServer = () => {
   try {
-    connectDB();
     const PORT = process.env.PORT || 8080;
     app.listen(PORT, () => {
       console.log(`Server started on port ${PORT}`);
       console.log(`API available at http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.error("Failed to start server:", error);
+    console.error("Failed to start server locally:", error);
     process.exit(1);
   }
 };
 
-startServer();
+// Start the server if not running on Vercel serverless environment
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
