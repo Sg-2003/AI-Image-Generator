@@ -3,6 +3,7 @@ import Post from "../models/Posts.js";
 import * as dotenv from "dotenv";
 import { createError } from "../error.js";
 import { v2 as cloudinary } from "cloudinary";
+import { connectDB } from "../db.js";
 
 dotenv.config();
 
@@ -15,14 +16,7 @@ cloudinary.config({
 // Get all posts
 export const getAllPosts = async (req, res, next) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
-      return next(
-        createError(
-          500,
-          "Database connection is not established. If this is the Vercel deployment, please check that you have added your MongoDB Atlas connection string (MONGODB_URL) to your environment variables."
-        )
-      );
-    }
+    await connectDB();
     const posts = await Post.find({});
     return res.status(200).json({ success: true, data: posts });
   } catch (error) {
@@ -38,14 +32,7 @@ export const getAllPosts = async (req, res, next) => {
 //  Create Post
 export const createPost = async (req, res, next) => {
   try {
-    if (mongoose.connection.readyState !== 1) {
-      return next(
-        createError(
-          500,
-          "Database connection is not established. If this is the Vercel deployment, please check that you have added your MongoDB Atlas connection string (MONGODB_URL) to your environment variables."
-        )
-      );
-    }
+    await connectDB();
     const { name, prompt, photo } = req.body;
     const photoUrl = await cloudinary.uploader.upload(photo);
     const newPost = await Post.create({

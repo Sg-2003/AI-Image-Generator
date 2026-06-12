@@ -35,20 +35,12 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Function to connect to MongoDB
-const connectDB = () => {
-  mongoose.set("strictQuery", true);
-  mongoose
-    .connect(process.env.MONGODB_URL)
-    .then(() => console.log("MongoDB Connected"))
-    .catch((err) => {
-      console.error("Failed to connect to DB");
-      console.error(err);
-    });
-};
+import { connectDB } from "./db.js";
 
 // Connect to MongoDB
-connectDB();
+connectDB().catch((err) => {
+  console.error("Initial database connection failed:", err);
+});
 
 // Function to start the server locally
 const startServer = () => {
