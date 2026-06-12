@@ -5,7 +5,6 @@ import { AddRounded, ExploreRounded } from "@mui/icons-material";
 import Button from "./button";
 
 const Container = styled.div`
-  flex: 1;
   background: ${({ theme }) => theme.navbar};
   color: ${({ theme }) => theme.text_primary};
   font-weight: bold;
@@ -20,13 +19,38 @@ const Container = styled.div`
   }
 `;
 
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+  color: ${({ theme }) => theme.text_primary};
+`;
+
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/");
   return (
     <Container>
-      GenAI
+      <Logo onClick={() => navigate("/")}>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#ab47bc" />
+              <stop offset="100%" stopColor="#2196f3" />
+            </linearGradient>
+          </defs>
+          <rect x="3" y="3" width="8" height="8" rx="2" fill="url(#grad)" />
+          <rect x="13" y="3" width="8" height="8" rx="2" fill="url(#grad)" opacity="0.7" />
+          <rect x="3" y="13" width="8" height="8" rx="2" fill="url(#grad)" opacity="0.7" />
+          <rect x="13" y="13" width="8" height="8" rx="2" fill="#eab308" />
+          <circle cx="17" cy="17" r="1.5" fill="#fff" />
+        </svg>
+        <span>PixelForge</span>
+      </Logo>
       {path[1] === "post" ? (
         <Button
           onClick={() => navigate("/")}

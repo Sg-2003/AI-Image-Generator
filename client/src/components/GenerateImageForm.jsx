@@ -11,8 +11,7 @@ const Form = styled.div`
   padding: 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 9%;
-  justify-content: center;
+  gap: 24px;
 `;
 const Top = styled.div`
   display: flex;

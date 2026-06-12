@@ -5,14 +5,13 @@ import GeneratedImageCard from "../components/GeneratedImageCard";
 
 const Container = styled.div`
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: ${({ theme }) => theme.bg};
   padding: 30px 30px;
   padding-bottom: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 20px;
   @media (max-width: 768px) {
     padding: 6px 10px;

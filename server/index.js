@@ -19,7 +19,7 @@ app.use("/api/generateImage", GenerateImageRouter);
 // Default route
 app.get("/", async (req, res) => {
   res.status(200).json({
-    message: "AI Image Generator API is running!",
+    message: "PixelForge API is running!",
   });
 });
 

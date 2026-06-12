@@ -37,7 +37,7 @@ const HoverOverlay = styled.div`
   background: rgba(0, 0, 0, 0.5);
   color: ${({ theme }) => theme.white};
   transition: opacity 0.3s ease;
-  border-radius: 6px;
+  border-radius: 20px;
   justify-content: end;
   padding: 16px;
 
@@ -64,7 +64,7 @@ const ImageCard = ({ item }) => {
     <Card>
       <LazyLoadImage
         alt={item?.prompt}
-        style={{ borderRadius: "12px" }}
+        style={{ borderRadius: "20px" }}
         width="100%"
         src={item?.photo}
       />
