@@ -42,8 +42,8 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
-cd Image_Generator
+git clone https://github.com/Sg-2003/AI-Image-Generator.git
+cd AI-Image-Generator
 ```
 
 ### 2. Install Server Dependencies
@@ -140,7 +140,7 @@ The client will start on `http://localhost:3000`
 ## Project Structure
 
 ```
-Image_Generator/
+AI-Image-Generator/
 ├── client/                 # React frontend
 │   ├── public/            # Static files
 │   ├── src/
@@ -225,4 +225,3 @@ Created as a MERN stack project for AI image generation.
 ---
 
 **Note**: Make sure to keep your `.env` files secure and never commit them to version control!
-"# AI-Image-Generator" 
